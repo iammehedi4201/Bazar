@@ -1,0 +1,17 @@
+.cart-product-selected-section{
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+
+}
+
+.cart-calculation-section{
+    width: 100%;
+    height: auto;
+}
+
+#selectRandomProduct{
+
+    display: none;
+
+}

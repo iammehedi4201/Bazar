@@ -1,0 +1,9 @@
+.footer-section{
+    min-height: 5vh;
+    width: 100%;
+    display: grid;
+    place-content:center;
+    background-color: black;
+    color: red;
+
+}
