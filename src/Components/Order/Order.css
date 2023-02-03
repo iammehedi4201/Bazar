@@ -28,7 +28,7 @@
         display: grid;
         grid-template-columns:100% ;
         grid-gap: 20px;
-        height: 80vh;
+        min-height: 80vh;
     
     }
     .Cart-section{

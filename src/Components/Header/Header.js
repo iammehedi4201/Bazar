@@ -1,22 +1,18 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import logo from "../../logo/logo.png";
-import { NavLink } from "react-router-dom";
-import { MyContext } from "../../Layout/Main";
-
+import { InputContext } from "../../Contexts/SearchInputContext";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
- 
-  const {catchValue} =useContext(MyContext)
-
-
+  const { catchValue } = useContext(InputContext);
 
   function updatemenu() {
-    if (document.getElementById("responsive-menu").checked == true) {
+    if (document.getElementById("responsive-menu").checked === true) {
       document.getElementById("menu").style.borderBottomRightRadius = "0";
       document.getElementById("menu").style.borderBottomLeftRadius = "0";
     } else {
-      document.getElementById("menu").style.borderRadius = "6px";
+      document.getElementById("menu").style.borderRadius = "0px";
     }
   }
 
@@ -31,9 +27,6 @@ const Header = () => {
             <img className="logo-img" src={logo} alt="" />
           </a>
         </div>
-
-        <div></div>
-
         <ul>
           <li>
             <NavLink
@@ -43,12 +36,15 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-          <NavLink
-            to="/About"
-            style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
-          >
-            About Us
-          </NavLink>
+          <li>
+            <NavLink
+              to="/About"
+              style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
+            >
+              About Us
+            </NavLink>
+          </li>
+
           <li>
             <NavLink
               to="/Shop"
@@ -65,6 +61,20 @@ const Header = () => {
               Order Review
             </NavLink>
           </li>
+
+          <NavLink
+            to="/Order"
+            style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
+          >
+            <button className="btn btn-danger">LogIn</button>
+          </NavLink>
+
+          <NavLink
+            to="/Order"
+            style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
+          >
+            <button className="btn btn-danger">SignUp</button>
+          </NavLink>
         </ul>
 
         <div className="search-section">
@@ -76,12 +86,11 @@ const Header = () => {
               placeholder="Enter Product Name "
               aria-label="Search"
             />
-            <button
-              onClick={catchValue}
-              className="btn btn-outline-success"
-              type="submit"
-            >
-              Search
+
+            <button onClick={catchValue} className="btn btn-outline-success">
+              <Link className="search-btn" to="/shop">
+                Search
+              </Link>
             </button>
           </form>
         </div>

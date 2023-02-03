@@ -1,0 +1,31 @@
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   
+  }
+  
+  .form-details {
+    width: 45%;
+    padding: 30px;
+    border-radius: 2px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: aliceblue;
+    
+  }
+  .form-else-option {
+    display: flex;
+    justify-content: center;
+  }
+  .form-heading-style {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 42px;
+    letter-spacing: 0.0025em;
+    color: #2a414f;
+    text-align: center;
+  }
+  

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { MyContext } from "../../Layout/Main";
+import { InputContext } from "../../Contexts/SearchInputContext";
 import Cart from "../Cart/Cart";
 import useCart from "../Hooks/useCart";
 import { addToDb } from "../LocalStorage/Database";
@@ -11,7 +11,8 @@ import "./Shop.css";
 const Shop = () => {
   //search Input
 
-  const { inputValue } = useContext(MyContext);
+  const { inputValue } = useContext(InputContext);
+
 
   //product Data Load
 
@@ -62,7 +63,7 @@ const Shop = () => {
         <div className="error-message">
           <Alert variant="danger">
             <Alert.Heading className="text-center">
-              Please Selecte a Product for Shopping
+              Please Search a Product for Shopping
             </Alert.Heading>
             <p>
               Change this and that and try again. Duis mollis, est non commodo

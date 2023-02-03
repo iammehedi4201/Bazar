@@ -6,7 +6,7 @@ import "./AboutUs.css";
 const AboutUs = () => {
   return (
     <div className="About-section">
-      <Card className="text-center col-5 space bg-color">
+      <Card className="text-center col-6 space bg-color">
         <Card.Body>
           <Card.Title>
             <h2 className="border-bottom">About us</h2>
