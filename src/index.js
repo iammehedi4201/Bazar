@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchInputContext from "./Contexts/SearchInputContext";
+import UserContext from "./Contexts/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <SearchInputContext>
-      <App />
+      <UserContext>
+         <App/>
+      </UserContext>
     </SearchInputContext>
   </React.StrictMode>
 );

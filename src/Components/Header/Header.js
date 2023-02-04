@@ -3,9 +3,12 @@ import "./Header.css";
 import logo from "../../logo/logo.png";
 import { InputContext } from "../../Contexts/SearchInputContext";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Contexts/UserContext";
 
 const Header = () => {
   const { catchValue } = useContext(InputContext);
+
+  const { user, logOut } = useContext(AuthContext);
 
   function updatemenu() {
     if (document.getElementById("responsive-menu").checked === true) {
@@ -61,20 +64,44 @@ const Header = () => {
               Order Review
             </NavLink>
           </li>
+          {user?.email ? (
+            <>
+              <h6 className="text-danger mt-lg-3 text-center ">
+                Welcome {user?.email}
+              </h6>
+              <NavLink
+              to='/login'
+                className="text-center"
+                style={({ isActive }) => ({
+                  color: isActive ? "red" : "white",
+                })}
+              >
+                <button onClick={logOut} className="btn btn-danger">
+                  LogOut
+                </button>
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+                style={({ isActive }) => ({
+                  color: isActive ? "red" : "white",
+                })}
+              >
+                <button className="btn btn-danger">LogIn</button>
+              </NavLink>
 
-          <NavLink
-            to="/Order"
-            style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
-          >
-            <button className="btn btn-danger">LogIn</button>
-          </NavLink>
-
-          <NavLink
-            to="/Order"
-            style={({ isActive }) => ({ color: isActive ? "red" : "white" })}
-          >
-            <button className="btn btn-danger">SignUp</button>
-          </NavLink>
+              <NavLink
+                to="/signup"
+                style={({ isActive }) => ({
+                  color: isActive ? "red" : "white",
+                })}
+              >
+                <button className="btn btn-danger">SignUp</button>
+              </NavLink>
+            </>
+          )}
         </ul>
 
         <div className="search-section">

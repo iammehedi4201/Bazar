@@ -59,32 +59,17 @@ const Shop = () => {
   };
   return (
     <div>
-      {selectedProduct.length === 0 && (
-        <div className="error-message">
-          <Alert variant="danger">
-            <Alert.Heading className="text-center">
-              Please Search a Product for Shopping
-            </Alert.Heading>
-            <p>
-              Change this and that and try again. Duis mollis, est non commodo
-              luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
-              elit. Cras mattis consectetur purus sit amet fermentum.
-            </p>
-          </Alert>
-        </div>
-      )}
-
       <div className="shop-section">
         <div className="product-section row row-cols-1 row-cols-md-3 g-4">
-          {selectedProduct.map((item) => (
+          {
+          selectedProduct.length === 0 ?products.map((item) => (
+            <Product item={item} key={item.id} addToCart={addToCart}></Product>
+          )):selectedProduct.map((item) => (
             <Product item={item} key={item.id} addToCart={addToCart}></Product>
           ))}
         </div>
 
         <div className="cart-section">
-          {selectedProduct.length === 0 ? (
-            " "
-          ) : (
             <Cart cartProduct={cartProduct}>
               <div class="d-grid gap-2 mb-3">
                 <button class="btn btn-outline-danger" type="button">
@@ -101,7 +86,7 @@ const Shop = () => {
                 </button>
               </div>
             </Cart>
-          )}
+          
         </div>
       </div>
     </div>
