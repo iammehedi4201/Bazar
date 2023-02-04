@@ -24,13 +24,13 @@ const LogIn = () => {
      const email = form.email.value;
      const password=form.password.value;
      console.log(email,password);
-     navigate("/shop")
      signIn(email,password)
      .then(result=>{
       const user = result.user;
       form.reset();
       console.log("LogIn user is :",user);
       setSuccessful(true)
+      navigate("/shop")
      })
      .catch(error=>setError("Wrong Password! Please Try Again"))
   }

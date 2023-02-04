@@ -3,8 +3,6 @@ import Alert from "react-bootstrap/Alert";
 import "./Cart.css";
 
 const Cart = (props) => {
-  console.log("The Cart Pros is :", props);
-
   const [randomProduct, setRandomProduct] = useState("");
 
   const { img, name, quantity, id } = randomProduct;
@@ -50,21 +48,23 @@ const Cart = (props) => {
           Cart Calculation
         </h3>
 
-        {
-           quantityValue == 0 ?   <div>
-           {["warning"].map((variant) => (
-             <Alert key={variant} variant={variant}>
-                Please Add Something to Cart
-             </Alert>
-           ))}
-         </div> :   <div>
-            {["success"].map((variant) => (
+        {quantityValue == 0 ? (
+          <div>
+            {["warning"].map((variant) => (
               <Alert key={variant} variant={variant}>
-                   Thank you for adding
+                Please Add Something to Cart
               </Alert>
             ))}
           </div>
-        }
+        ) : (
+          <div>
+            {["success"].map((variant) => (
+              <Alert key={variant} variant={variant}>
+                Thank you for adding
+              </Alert>
+            ))}
+          </div>
+        )}
 
         <h6>Selected Product:-{quantityValue}</h6>
         <h6>Total Price:-{sumOfTotalPrice}</h6>
@@ -89,13 +89,13 @@ const Cart = (props) => {
         <div className="card mb-3 ">
           <div className="row g-0 card-div">
             <div className="col-md-4 col-6">
-              <img src={img} className="img-fluid rounded-start" alt="..." />
+              <img  src={img} className="img-fluid rounded-start my-3" alt="..." />
             </div>
             <div className="col-md-8 col-6">
               <div className="card-body card-body-div">
                 <div className="selected-product-info">
                   <h3 className="text-size">{name}</h3>
-                  <h6 className="text-size">Quantity{quantity}</h6>
+                  <h6 className="text-size">Quantity:-{quantity}</h6>
                 </div>
               </div>
             </div>

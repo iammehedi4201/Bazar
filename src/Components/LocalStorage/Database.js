@@ -51,6 +51,13 @@ const storedCart=()=>{
 
 }
 
+
+const clearLocalStorage =()=>{
+
+    localStorage.clear();
+
+}
+
 const deleteAProductFormDb=(id)=>{
 
      const getCart =localStorage.getItem("shopping-cart")
@@ -71,13 +78,13 @@ const deleteAProductFormDb=(id)=>{
         
      }
 
-
-
 }
 
 
 export {
     addToDb,
     storedCart,
-    deleteAProductFormDb
+    clearLocalStorage,
+    deleteAProductFormDb,
+    
 }

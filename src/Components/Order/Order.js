@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import Cart from "../Cart/Cart";
 import useCart from "../Hooks/useCart";
 import SelectedProduct from "../Inner cart/SelectedProduct";
-import { deleteAProductFormDb } from "../LocalStorage/Database";
+import { clearLocalStorage, deleteAProductFormDb } from "../LocalStorage/Database";
 
 import "./Order.css";
 
@@ -20,6 +20,14 @@ const Order = () => {
 
     deleteAProductFormDb(ProductId);
   };
+
+  const handleClearcart =()=>{
+
+    setCartProducts("");
+    clearLocalStorage();
+
+
+  }
 
   return (
     <div>
@@ -43,7 +51,7 @@ const Order = () => {
       )}
       <div className="order-review-container">
         <section className="selected-product-section">
-          {cartProduct.map((item) => (
+          {cartProduct&&cartProduct.map((item) => (
             <SelectedProduct
               item={item}
               key={item.id}
@@ -58,7 +66,7 @@ const Order = () => {
           ) : (
             <Cart cartProduct={cartProduct}>
               <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-danger" type="button">
+                <button onClick={handleClearcart} class="btn btn-outline-danger" type="button">
                   Clear Cart
                 </button>
               </div>

@@ -4,7 +4,7 @@ import { storedCart } from "../LocalStorage/Database";
 const useCart =(products)=>{
 
      const [cartProduct,setCartProducts]=useState([]);
-
+     
      useEffect(()=>{
 
          const storedCartItem =storedCart();
